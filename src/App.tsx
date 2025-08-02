@@ -1,4 +1,5 @@
 import './App.css';
+import Read from './components/Read';
 import Write from './components/Write';
 import { useEffect, useState } from 'react';
 
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <div className="App">
+      <Read todos />
       <Write onAdd={addTodo} />
     </div>
   );
