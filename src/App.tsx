@@ -39,7 +39,7 @@ function App() {
 
   return (
     <div className="App">
-      <Read todos />
+      <Read todos={todos} />
       <Write onAdd={addTodo} />
     </div>
   );
