@@ -1,11 +1,12 @@
+import { useState } from 'react';
 import './App.css';
 import Write from './components/Write';
-import Read from './components/Read';
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
     <div className="App">
-      <Read />
       <Write />
     </div>
   );
