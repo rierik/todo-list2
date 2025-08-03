@@ -36,10 +36,12 @@ function App() {
     };
     setTodos((prev) => [...prev, newTodo]);
   };
-
+  const deleteTodo = (id: number) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
   return (
     <div className="App">
-      <Read todos={todos} />
+      <Read todos={todos} deleteTodo={deleteTodo} />
       <Write onAdd={addTodo} />
     </div>
   );

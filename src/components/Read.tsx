@@ -6,10 +6,15 @@ type todo = {
 
 type Props = {
   todos: todo[];
+  deleteTodo: (id: number) => void;
 };
 
-export default function Read({ todos }: Props) {
+export default function Read({ todos, deleteTodo }: Props) {
   const safeTodos = Array.isArray(todos) ? todos : [];
+
+  const handleDeleteTodo = (id: number) => {
+    deleteTodo(id);
+  };
   return (
     <ul>
       {safeTodos.length === 0 ? (
@@ -18,6 +23,7 @@ export default function Read({ todos }: Props) {
         safeTodos.map((todo) => (
           <li key={todo.id}>
             {todo.text} {todo.done ? '(완료)' : '(미완료)'}
+            <span onClick={() => handleDeleteTodo(todo.id)}>삭제</span>
           </li>
         ))
       )}
